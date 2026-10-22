@@ -1,6 +1,6 @@
 # Mini gym Torre A: registro de apoyo
 
-Sitio de una sola página para que los vecinos de la Torre A (Torre Océano, Condominio Panorámico, 160 departamentos) registren si apoyan convertir la **sala de eventos norte** en un mini gym. Se necesitan **110 departamentos** para pedir la asamblea. Lo administra Daniel, presidente del comité de la Torre A.
+Sitio de una sola página para que los vecinos de la Torre A (Torre Océano, Condominio Panorámico, 164 departamentos) registren si apoyan convertir la **sala de eventos norte** en un mini gym. Se necesitan **110 departamentos** para pedir la asamblea. Lo administra Daniel, presidente del comité de la Torre A.
 
 Idioma de la interfaz, los mensajes y los comentarios: español.
 
@@ -45,7 +45,7 @@ Vercel Blob privado, store `minigym-votos`, conectado al proyecto de Vercel. Cad
 - Paleta: iron `#20262E`, yellow `#F2C230`, chalk `#E8EAEC`, paper `#F7F8F9`, red `#C62B22`, blue `#1F58C9`, green `#187A41`. Los colores de los discos siguen los de discos de gimnasio.
 - Tipografía: Big Shoulders Display (títulos y números) y Barlow (texto), desde Google Fonts, con fuentes de respaldo.
 - El avance se anima solo si el visitante no pidió movimiento reducido.
-- Constantes en el script de `index.html`: `META = 110`, `TOTAL = 160`, `PARES = 5`.
+- Constantes en el script de `index.html`: `META = 110`, `TOTAL = 164`, `PARES = 5`.
 
 ## Estado y pendientes
 
