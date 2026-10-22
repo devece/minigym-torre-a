@@ -1,4 +1,5 @@
 import { list } from '@vercel/blob';
+import { DEPTOS } from './_deptos.js';
 
 // Totales públicos (sin nombres): cuenta archivos por sufijo, sin leer su contenido.
 export default async function handler(req, res) {
@@ -10,7 +11,7 @@ export default async function handler(req, res) {
       const page = await list({ prefix: 'votos/', limit: 1000, cursor });
       for (const b of page.blobs) {
         const m = b.pathname.match(/^votos\/(.+)--(si|no)\.json$/);
-        if (m) (m[2] === 'si' ? si : no).add(m[1]);
+        if (m && DEPTOS.has(m[1])) (m[2] === 'si' ? si : no).add(m[1]);
       }
       cursor = page.hasMore ? page.cursor : undefined;
     } while (cursor);
