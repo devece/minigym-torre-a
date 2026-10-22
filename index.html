@@ -4,181 +4,240 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mini gym Torre A · Registro de apoyo</title>
-<meta name="description" content="Los vecinos de la Torre A registran su apoyo para convertir la sala de eventos norte en un mini gym. Meta: 110 de 160 departamentos.">
+<meta name="description" content="Los vecinos de la Torre A registran su apoyo para convertir la sala de eventos norte en un mini gym. Meta: 110 de 164 departamentos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Big+Shoulders+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --chalk:#E8EAEC; --paper:#F7F8F9; --iron:#20262E; --yellow:#F2C230;
-    --red:#C62B22; --blue:#1F58C9; --green:#187A41; --edge:3px;
-    --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
-    --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --ink:#111418; --ink2:#1A2026; --ink3:#222A31; --line:#2A323A; --track:#2C353E;
+    --lime:#C6F135; --sun:#FFD23F; --sky:#5CC8FF; --orange:#FF8A3D; --pink:#FF5C8A;
+    --bg:#F3F4F1; --white:#fff; --muted:#4B5560; --mutedDark:#A9B3BD; --border:#D5D9DD; --focus:#7FA10A;
+    --display:"Archivo","Arial Narrow",Impact,sans-serif;
+    --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--chalk);color:var(--iron);font:17px/1.5 var(--body)}
-  .in{max-width:760px;margin:0 auto;padding:0 16px}
+  body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 var(--body)}
+  .in{max-width:1200px;margin:0 auto;padding:0 32px}
+
+  /* ---------- barra superior ---------- */
+  .top{background:var(--ink);color:var(--white)}
+  .top .in{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:8px 16px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px;font:700 17px var(--display);letter-spacing:.01em}
+  .logo{width:34px;height:34px;border-radius:10px;background:var(--lime);display:flex;align-items:center;justify-content:center}
+  .top small{font-size:14px;color:var(--mutedDark)}
 
   /* ---------- portada ---------- */
-  .hero{background:var(--yellow);border-bottom:var(--edge) solid var(--iron);padding:30px 0 28px}
-  h1{margin:0 0 14px;font:900 clamp(40px,12.5vw,110px)/.86 var(--display);text-transform:uppercase;letter-spacing:-.005em}
-  .lead{margin:0 0 22px;max-width:33em;font-size:18px}
-  .lead strong{font-weight:600}
-  svg.bar{display:block;width:100%;height:auto;margin:0 0 10px;overflow:hidden}
-  svg.bar text{font-family:var(--display);font-weight:800;font-size:21px}
-  .count{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px}
-  .count b{font:900 80px/.95 var(--display);font-variant-numeric:tabular-nums}
-  .count span{font:800 28px/1 var(--display);text-transform:uppercase}
-  .goal{margin:8px 0 0;font-weight:600}
+  .hero{background:var(--ink);color:var(--white);padding:56px 0 80px}
+  .hero .in{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+  .left{flex:1 1 560px;min-width:0}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:#1E252C;color:var(--lime);font:600 14px var(--body)}
+  .pill i{width:8px;height:8px;border-radius:50%;background:var(--lime)}
+  h1{margin:22px 0 18px;font:800 clamp(42px,7.4vw,76px)/.98 var(--display);letter-spacing:-.02em}
+  h1 span{color:var(--lime)}
+  .lead{margin:0 0 32px;max-width:520px;font-size:19px;line-height:1.55;color:#C5CDD5}
+  .lead strong{color:var(--white);font-weight:600}
+  svg.art{display:block;width:100%;height:auto;margin:0 0 32px}
 
-  /* ---------- tablero ---------- */
-  .board{display:grid;grid-template-columns:repeat(3,1fr);margin:26px 0 0;border:var(--edge) solid var(--iron);background:var(--paper)}
-  .board div{padding:12px 8px 10px;text-align:center}
-  .board div+div{border-left:var(--edge) solid var(--iron)}
-  .board b{display:block;font:900 44px/1 var(--display);font-variant-numeric:tabular-nums}
-  .board span{font-size:15px}
-  .board .si b{color:var(--green)} .board .no b{color:var(--red)}
+  .avance{background:var(--ink2);border:1px solid var(--line);border-radius:20px;padding:28px}
+  .head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px 16px;flex-wrap:wrap}
+  .big{display:flex;align-items:baseline;gap:10px}
+  .big b{font:800 clamp(64px,13vw,88px)/.9 var(--display);color:var(--lime);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .big span{font:600 22px var(--body);color:var(--mutedDark)}
+  .faltan{font:600 16px var(--body);background:#262E36;border-radius:10px;padding:8px 14px}
+  .segs{display:flex;gap:6px;margin-top:26px}
+  .seg{flex:1;height:16px;border-radius:8px;background:var(--track);overflow:hidden}
+  .seg i{display:block;width:0;height:100%;background:var(--lime)}
+  .marks{display:flex;justify-content:space-between;margin-top:10px;font:500 13px var(--body);color:var(--mutedDark)}
+  .totales{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:26px}
+  .totales div{background:var(--ink3);border-radius:14px;padding:16px}
+  .totales b{display:block;font:800 clamp(26px,5vw,34px)/1 var(--display);font-variant-numeric:tabular-nums}
+  .totales span{display:block;margin-top:6px;font-size:14px;color:var(--mutedDark)}
 
   /* ---------- formulario ---------- */
-  .sheet{margin:30px 0 0;padding:20px 18px 22px;background:var(--paper);border:var(--edge) solid var(--iron);box-shadow:7px 7px 0 var(--iron)}
-  h2{margin:0 0 4px;font:800 40px/1 var(--display);text-transform:uppercase}
-  .sub{margin:0 0 14px;color:#46505b}
-  label.f,.q{display:block;margin:16px 0 6px;font-weight:600}
-  input[type=text]{width:100%;height:54px;padding:0 14px;font:inherit;font-size:18px;color:var(--iron);background:#fff;border:var(--edge) solid var(--iron);border-radius:4px}
+  .card{flex:1 1 400px;min-width:0;max-width:480px;background:var(--white);color:var(--ink);border-radius:24px;padding:36px 32px 32px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+  h2{margin:0 0 6px;font:800 32px/1.05 var(--display);letter-spacing:-.01em}
+  .sub{margin:0 0 26px;font-size:15px;line-height:1.5;color:var(--muted)}
+  label.f,.q{display:block;margin:20px 0 8px;font:600 14px var(--body)}
+  label.f.first{margin-top:0}
+  input[type=text]{width:100%;height:56px;padding:0 16px;font:500 17px var(--body);color:var(--ink);background:var(--white);border:2px solid var(--border);border-radius:12px}
   input[type=text]::placeholder{color:#7b8691}
-  input:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-  .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .pair .wide{grid-column:1/-1}
-  .choices{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .choices input{position:absolute;opacity:0;pointer-events:none}
-  .choices label{display:flex;align-items:center;justify-content:center;gap:10px;min-height:64px;padding:8px;background:#fff;border:var(--edge) solid var(--iron);border-radius:4px;font:800 27px/1 var(--display);text-transform:uppercase;cursor:pointer;user-select:none}
-  .choices input:focus-visible+label{outline:3px solid var(--blue);outline-offset:3px}
-  .choices input[value=si]:checked+label{background:var(--green);color:#fff}
-  .choices input[value=no]:checked+label{background:var(--red);color:#fff}
-  .choices input:checked+label::before{content:"✓"}
-  .choices input[value=no]:checked+label::before{content:"✕"}
-  button.go{width:100%;margin-top:22px;min-height:62px;font:800 30px/1 var(--display);text-transform:uppercase;letter-spacing:.01em;color:var(--paper);background:var(--iron);border:var(--edge) solid var(--iron);border-radius:4px;cursor:pointer;box-shadow:5px 5px 0 var(--red);transition:transform .08s,box-shadow .08s}
-  button.go:hover{background:#2c3540}
-  button.go:active{transform:translate(4px,4px);box-shadow:1px 1px 0 var(--red)}
+  input:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+  .hint{margin-top:6px;font-size:13px;color:var(--muted)}
+  .choices{display:flex;gap:12px}
+  .opt{position:relative;flex:1}
+  .opt input{position:absolute;opacity:0;pointer-events:none}
+  .opt label{display:flex;align-items:center;justify-content:center;gap:8px;height:56px;border:2px solid var(--border);border-radius:12px;background:var(--white);font:600 16px var(--body);cursor:pointer;user-select:none}
+  .opt input:checked+label{background:var(--ink);border-color:var(--ink);color:var(--white)}
+  .opt input:focus-visible+label{outline:3px solid var(--focus);outline-offset:2px}
+  .opt svg{display:none}
+  .opt input[value=si]:checked+label svg{display:block}
+  button.go{width:100%;margin-top:26px;height:60px;border:0;border-radius:14px;background:var(--lime);color:var(--ink);font:800 19px var(--display);letter-spacing:.01em;cursor:pointer;transition:transform .08s}
+  button.go:hover{background:#B8E32A}
+  button.go:active{transform:translateY(2px)}
   button.go:disabled{opacity:.65;cursor:wait}
-  .msg{display:none;margin-top:16px;padding:12px 14px;border:var(--edge) solid var(--iron);border-radius:4px;font-weight:600}
-  .msg.ok{display:block;background:#CFEBDA}
-  .msg.err{display:block;background:#F6D3CF}
-  .note{margin:22px 0 0;padding-bottom:44px;max-width:36em;font-size:15px;color:#46505b}
+  .msg{display:none;margin-top:16px;padding:12px 14px;border-radius:12px;font-weight:600;font-size:15px}
+  .msg.ok{display:block;background:#DDF3C2}
+  .msg.err{display:block;background:#F8D7D3}
+  .nota{margin:16px 0 0;font-size:13px;line-height:1.5;color:var(--muted);text-align:center}
 
-  @media (min-width:600px){
-    .hero{padding:44px 0 36px}
-    .lead{font-size:20px}
-    .count b{font-size:112px}
-    .board b{font-size:60px}
-    .sheet{padding:26px 28px 30px}
-    .pair{grid-template-columns:1fr 190px}
-    .pair .wide{grid-column:auto}
+  /* ---------- cómo funciona ---------- */
+  .como{padding-top:72px;padding-bottom:24px}
+  .como h2{margin:0 0 36px;font-size:40px}
+  .pasos{display:flex;flex-wrap:wrap;gap:20px}
+  .paso{flex:1 1 280px;min-width:0;background:var(--white);border-radius:20px;padding:28px}
+  .num{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font:800 20px var(--display);color:var(--ink)}
+  .paso h3{margin:18px 0 8px;font:700 20px/1.2 var(--display)}
+  .paso p{margin:0;font-size:16px;line-height:1.55;color:var(--muted)}
+  .pie{padding:40px 0 32px;font-size:14px;color:var(--muted)}
+
+  @media (max-width:600px){
+    .in{padding:0 16px}
+    .hero{padding:32px 0 44px}
+    .lead{font-size:17px;margin-bottom:24px}
+    svg.art{margin-bottom:24px}
+    .avance{padding:20px;border-radius:18px}
+    .big span{font-size:18px}
+    .card{padding:26px 20px 22px;border-radius:22px}
+    h2{font-size:27px}
+    .como{padding-top:44px}
+    .como h2{font-size:30px;margin-bottom:20px}
+    .paso{padding:20px}
+    .pasos{gap:12px}
   }
   @media (prefers-reduced-motion:reduce){ button.go{transition:none} }
 </style>
 </head>
 <body>
 
+<div class="top">
+  <div class="in">
+    <div class="brand">
+      <div class="logo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111418" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h20M5 7v10M8.5 4.5v15M15.5 4.5v15M19 7v10"/></svg>
+      </div>
+      Torre A · Mini gym
+    </div>
+    <small>Condominio Panorámico</small>
+  </div>
+</div>
+
 <header class="hero">
   <div class="in">
-    <h1>Carguemos la barra</h1>
-    <p class="lead">Queremos convertir la sala de eventos norte de la Torre A en un mini gym para la comunidad. Para pedir la asamblea necesitamos el apoyo de <strong>110 de los 160 departamentos</strong>. Cada disco que se suma es un grupo de 22 departamentos.</p>
+    <div class="left">
+      <div class="pill"><i></i> Registro de apoyo abierto</div>
+      <h1>Convirtamos la sala norte en un <span>mini&nbsp;gym</span>.</h1>
+      <p class="lead">Necesitamos el apoyo de <strong>110 de los 164 departamentos</strong> para pedir la asamblea. Responde en menos de un minuto: un voto por departamento.</p>
 
-    <svg class="bar" id="bar" viewBox="76 0 568 200" role="img" aria-label="Barra con 0 de 110 departamentos"></svg>
+      <svg class="art" viewBox="0 0 520 200" role="img" aria-label="Dibujo de una barra con discos de colores, una pesa rusa sonriente y dos mancuernas">
+        <rect x="20" y="186" width="480" height="4" rx="2" fill="#2A323A"/>
+        <circle cx="260" cy="44" r="22" fill="#FFD23F"/>
+        <rect x="24" y="97" width="472" height="10" rx="5" fill="#D9DEE3"/>
+        <rect x="58" y="46" width="26" height="112" rx="9" fill="#FF8A3D"/>
+        <rect x="88" y="62" width="20" height="80" rx="8" fill="#5CC8FF"/>
+        <rect x="112" y="84" width="8" height="36" rx="3" fill="#8E99A4"/>
+        <rect x="436" y="46" width="26" height="112" rx="9" fill="#FF8A3D"/>
+        <rect x="412" y="62" width="20" height="80" rx="8" fill="#5CC8FF"/>
+        <rect x="400" y="84" width="8" height="36" rx="3" fill="#8E99A4"/>
+        <path d="M232 134 C232 106 288 106 288 134" fill="none" stroke="#C6F135" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="260" cy="152" r="34" fill="#C6F135"/>
+        <circle cx="248" cy="148" r="4" fill="#111418"/>
+        <circle cx="272" cy="148" r="4" fill="#111418"/>
+        <circle cx="240" cy="159" r="5" fill="#FF8FB1" opacity=".8"/>
+        <circle cx="280" cy="159" r="5" fill="#FF8FB1" opacity=".8"/>
+        <path d="M248 158 Q260 170 272 158" fill="none" stroke="#111418" stroke-width="4" stroke-linecap="round"/>
+        <rect x="170" y="168" width="30" height="6" rx="3" fill="#D9DEE3"/>
+        <rect x="156" y="156" width="16" height="30" rx="5" fill="#FF5C8A"/>
+        <rect x="198" y="156" width="16" height="30" rx="5" fill="#FF5C8A"/>
+        <rect x="320" y="168" width="30" height="6" rx="3" fill="#D9DEE3"/>
+        <rect x="348" y="156" width="16" height="30" rx="5" fill="#5CC8FF"/>
+        <rect x="306" y="156" width="16" height="30" rx="5" fill="#5CC8FF"/>
+        <path d="M0 -9 L2.4 -2.4 L9 0 L2.4 2.4 L0 9 L-2.4 2.4 L-9 0 L-2.4 -2.4Z" transform="translate(130 34)" fill="#FFD23F"/>
+        <path d="M0 -9 L2.4 -2.4 L9 0 L2.4 2.4 L0 9 L-2.4 2.4 L-9 0 L-2.4 -2.4Z" transform="translate(392 30)" fill="#fff"/>
+        <path d="M0 -9 L2.4 -2.4 L9 0 L2.4 2.4 L0 9 L-2.4 2.4 L-9 0 L-2.4 -2.4Z" transform="translate(36 70)" fill="#C6F135"/>
+        <path d="M0 -9 L2.4 -2.4 L9 0 L2.4 2.4 L0 9 L-2.4 2.4 L-9 0 L-2.4 -2.4Z" transform="translate(486 72)" fill="#FFD23F"/>
+      </svg>
 
-    <div class="count" aria-live="polite">
-      <b id="nSi">0</b><span>de 110 departamentos ya se sumaron</span>
+      <div class="avance">
+        <div class="head" aria-live="polite">
+          <div class="big"><b id="nSi">0</b><span>de 110</span></div>
+          <div class="faltan" id="goal">Cargando el avance…</div>
+        </div>
+        <div class="segs" id="segs" role="img" aria-label="Barra de avance: 0 de 110 departamentos"></div>
+        <div class="marks"><span>22</span><span>44</span><span>66</span><span>88</span><span>110 meta</span></div>
+        <div class="totales" aria-label="Resumen de respuestas">
+          <div><b id="sSi">0</b><span>Sí apoyan</span></div>
+          <div><b id="sNo">0</b><span>No apoyan</span></div>
+          <div><b id="sPend">164</b><span>Sin responder</span></div>
+        </div>
+      </div>
     </div>
-    <p class="goal" id="goal">Cargando el avance…</p>
+
+    <section class="card">
+      <h2>Anota tu departamento</h2>
+      <p class="sub">Si cambias de opinión, vuelve a enviar y se actualiza tu respuesta.</p>
+
+      <form id="form" novalidate>
+        <label class="f first" for="nombre">Nombre y apellido</label>
+        <input type="text" id="nombre" autocomplete="name" maxlength="80" placeholder="María Pérez">
+
+        <label class="f" for="depto">Número de departamento</label>
+        <input type="text" id="depto" autocomplete="off" maxlength="10" inputmode="numeric" placeholder="1204">
+        <div class="hint">Piso y unidad, por ejemplo 1204.</div>
+
+        <div class="q" id="lblApoyo">¿Apoyas el mini gym en la sala norte?</div>
+        <div class="choices" role="radiogroup" aria-labelledby="lblApoyo">
+          <div class="opt"><input type="radio" name="apoyo" id="apSi" value="si"><label for="apSi">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Sí, apoyo</label></div>
+          <div class="opt"><input type="radio" name="apoyo" id="apNo" value="no"><label for="apNo">No apoyo</label></div>
+        </div>
+
+        <button class="go" id="btn" type="submit">Registrar mi respuesta</button>
+        <div class="msg" id="msg" role="status"></div>
+        <p class="nota">Aquí solo se ven totales. Los nombres los revisa el comité.</p>
+      </form>
+    </section>
   </div>
 </header>
 
-<main class="in">
-  <div class="board" aria-label="Resumen de respuestas">
-    <div class="si"><b id="sSi">0</b><span>Sí apoyan</span></div>
-    <div class="no"><b id="sNo">0</b><span>No apoyan</span></div>
-    <div><b id="sPend">160</b><span>Sin responder</span></div>
+<main class="in como">
+  <h2>Cómo funciona</h2>
+  <div class="pasos">
+    <div class="paso">
+      <div class="num" style="background:#C6F135">1</div>
+      <h3>Registra tu depto</h3>
+      <p>Escribe tu nombre, tu número de departamento y elige Sí o No.</p>
+    </div>
+    <div class="paso">
+      <div class="num" style="background:#FFD23F">2</div>
+      <h3>Un voto por departamento</h3>
+      <p>Si otra persona del depto responde después, se reemplaza la respuesta anterior.</p>
+    </div>
+    <div class="paso">
+      <div class="num" style="background:#5CC8FF">3</div>
+      <h3>Con 110 pedimos asamblea</h3>
+      <p>El comité cotejará la lista con el registro de copropietarios antes de convocar.</p>
+    </div>
   </div>
-
-  <section class="sheet">
-    <h2>Anota tu depto</h2>
-    <p class="sub">Una respuesta por departamento. Si cambias de opinión, envía de nuevo y se actualiza.</p>
-
-    <form id="form" novalidate>
-      <div class="pair">
-        <div class="wide">
-          <label class="f" for="nombre">Nombre y apellido</label>
-          <input type="text" id="nombre" autocomplete="name" maxlength="80" placeholder="María Pérez">
-        </div>
-        <div>
-          <label class="f" for="depto">Departamento</label>
-          <input type="text" id="depto" autocomplete="off" maxlength="10" placeholder="1203">
-        </div>
-      </div>
-
-      <div class="q" id="lblApoyo">¿Apoyas el mini gym en la sala norte?</div>
-      <div class="choices" role="radiogroup" aria-labelledby="lblApoyo">
-        <div><input type="radio" name="apoyo" id="apSi" value="si"><label for="apSi">Sí, apoyo</label></div>
-        <div><input type="radio" name="apoyo" id="apNo" value="no"><label for="apNo">No apoyo</label></div>
-      </div>
-
-      <button class="go" id="btn" type="submit">Registrar respuesta</button>
-      <div class="msg" id="msg" role="status"></div>
-    </form>
-  </section>
-
-  <p class="note">Aquí solo se ven los totales. Los nombres y departamentos los revisa el comité de la Torre A para verificar el respaldo antes de la asamblea.</p>
+  <div class="pie">Comité de la Torre A · Condominio Panorámico</div>
 </main>
 
 <script>
-const META = 110, TOTAL = 160, PARES = 5, POR_PAR = META / PARES;   // 22 departamentos por disco
+const META = 110, TOTAL = 164, PARES = 5, POR_PAR = META / PARES;   // 22 departamentos por tramo
 const $ = id => document.getElementById(id);
 
-/* ----- la barra: 5 pares de discos, de adentro hacia afuera ----- */
-const IRON = "#20262E";
-const COLOR = ["#C62B22", "#1F58C9", "#187A41", "#F7F8F9", "#20262E"];
-const W = [40, 36, 32, 28, 24];          // grosor de cada disco
-const H = [184, 162, 142, 122, 104];     // alto de cada disco
-const GAP = 4, X0 = 452;                 // donde parte el primer disco (lado derecho)
-
+/* ----- la barra de avance: 5 tramos de 22 departamentos ----- */
 function construirBarra(){
-  let s = "<defs>";
-  for (let k = 0; k < PARES; k++){
-    s += `<linearGradient id="g${k}" x1="0" y1="1" x2="0" y2="0">` +
-         `<stop offset="0" stop-color="${COLOR[k]}"/>` +
-         `<stop class="o${k}" offset="0" stop-color="${COLOR[k]}"/>` +
-         `<stop class="o${k}" offset="0" stop-color="${IRON}" stop-opacity=".12"/>` +
-         `<stop offset="1" stop-color="${IRON}" stop-opacity=".12"/></linearGradient>`;
-  }
-  s += "</defs>";
-  // barra, agarre y topes
-  s += `<rect x="6" y="95" width="708" height="10" rx="5" fill="${IRON}"/>`;
-  s += `<rect x="296" y="92" width="128" height="16" fill="${IRON}"/>`;
-  for (let x = 304; x <= 416; x += 8) s += `<line x1="${x}" y1="93" x2="${x}" y2="107" stroke="#6b7783" stroke-width="2"/>`;
-  s += `<rect x="440" y="80" width="12" height="40" rx="2" fill="${IRON}"/><rect x="268" y="80" width="12" height="40" rx="2" fill="${IRON}"/>`;
-  // discos
-  let x = X0;
-  for (let k = 0; k < PARES; k++){
-    const y = 100 - H[k] / 2, cx = x + W[k] / 2, xl = 720 - x - W[k];
-    const etiqueta = POR_PAR * (k + 1);
-    for (const px of [x, xl]){
-      s += `<rect x="${px}" y="${y}" width="${W[k]}" height="${H[k]}" rx="7" fill="url(#g${k})" stroke="${IRON}" stroke-width="3"/>`;
-      const tx = px + W[k] / 2;
-      s += `<text transform="translate(${tx} ${y + 28}) rotate(-90)" text-anchor="middle" dominant-baseline="central" fill="${IRON}" stroke="#F7F8F9" stroke-width="4" paint-order="stroke">${etiqueta}</text>`;
-    }
-    x += W[k] + GAP;
-  }
-  $("bar").innerHTML = s;
+  let s = "";
+  for (let k = 0; k < PARES; k++) s += '<div class="seg"><i></i></div>';
+  $("segs").innerHTML = s;
 }
 
 const frac = (v, k) => Math.max(0, Math.min(1, (v - POR_PAR * k) / POR_PAR));
 function dibujar(v){
-  for (let k = 0; k < PARES; k++){
-    const f = frac(v, k);
-    document.querySelectorAll(".o" + k).forEach(el => el.setAttribute("offset", f));
-  }
+  const rellenos = document.querySelectorAll("#segs .seg i");
+  for (let k = 0; k < PARES; k++) rellenos[k].style.width = (frac(v, k) * 100) + "%";
   $("nSi").textContent = Math.round(v);
 }
 
@@ -219,10 +278,10 @@ function pintar(res){
   const si = res.si || 0, no = res.no || 0, pend = Math.max(TOTAL - si - no, 0);
   cargado = true;
   $("sSi").textContent = si; $("sNo").textContent = no; $("sPend").textContent = pend;
-  $("bar").setAttribute("aria-label", "Barra con " + si + " de " + META + " departamentos");
+  $("segs").setAttribute("aria-label", "Barra de avance: " + si + " de " + META + " departamentos");
   $("goal").textContent = si >= META
-    ? "Barra cargada: " + si + " de " + META + ". Ya hay respaldo para pedir la asamblea."
-    : "Faltan " + (META - si) + " departamentos para cargar la barra completa.";
+    ? "Meta lograda: ya hay respaldo para pedir la asamblea"
+    : "Faltan " + (META - si) + " departamentos";
   llevarA(Math.min(si, META));
 }
 async function refrescar(){
@@ -237,7 +296,7 @@ $("form").addEventListener("submit", async ev => {
   const depto  = $("depto").value.trim().replace(/\s+/g, "").toUpperCase();
   const sel = document.querySelector("input[name=apoyo]:checked");
   if (nombre.length < 3) return mostrar("err", "Escribe tu nombre y apellido.");
-  if (!/^[A-Z0-9-]{1,10}$/.test(depto)) return mostrar("err", "Escribe tu número de departamento con letras, números o guion.");
+  if (!/^[A-Z0-9-]{1,10}$/.test(depto)) return mostrar("err", "Escribe tu número de departamento, por ejemplo 1204.");
   if (!sel) return mostrar("err", "Elige si apoyas o no el mini gym.");
   const btn = $("btn"); btn.disabled = true; btn.textContent = "Registrando…";
   try {
@@ -248,8 +307,8 @@ $("form").addEventListener("submit", async ev => {
     try { localStorage.setItem("minigym_mi_depto", JSON.stringify({ nombre, depto, v: sel.value })); } catch(e){}
     await refrescar();
   } catch(e){
-    mostrar("err", "No se pudo registrar tu respuesta. Revisa tu conexión y vuelve a enviar.");
-  } finally { btn.disabled = false; btn.textContent = "Registrar respuesta"; }
+    mostrar("err", "No se pudo registrar tu respuesta. Revisa el número de departamento y tu conexión, y vuelve a enviar.");
+  } finally { btn.disabled = false; btn.textContent = "Registrar mi respuesta"; }
 });
 
 /* recuerda la última respuesta en este dispositivo */

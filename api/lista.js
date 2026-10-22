@@ -35,6 +35,14 @@ export default async function handler(req, res) {
         console.error('lectura', b.pathname, e);
       }
     }
+    // Un solo registro por depto: si hay dos, queda el más reciente.
+    const porDepto = new Map();
+    for (const f of filas) {
+      const previo = porDepto.get(f.depto);
+      if (!previo || String(f.actualizado) > String(previo.actualizado)) porDepto.set(f.depto, f);
+    }
+    filas.length = 0;
+    filas.push(...porDepto.values());
     filas.sort((x, y) => String(x.depto).localeCompare(String(y.depto), 'es', { numeric: true }));
 
     const out = ['depto,nombre,apoyo,actualizado']
