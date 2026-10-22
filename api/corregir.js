@@ -40,9 +40,16 @@ export default async function handler(req, res) {
         informe.push(`${viejo} -> ${nuevo}: corregido (${d.nombre})`);
       }
     }
-    return res.status(200).type('text/plain; charset=utf-8').send(informe.join('\n'));
+    // Estado final: qué votos existen ahora bajo el depto correcto.
+    for (const nuevo of Object.values(CORRECCIONES)) {
+      const { blobs } = await list({ prefix: `votos/${nuevo}--` });
+      informe.push(`Estado ${nuevo}: ` + (blobs.map(b => b.pathname).join(', ') || 'sin voto'));
+    }
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    return res.status(200).send(informe.join('\n'));
   } catch (e) {
     console.error('corregir', e);
-    return res.status(500).type('text/plain; charset=utf-8').send(['Error al corregir', ...informe].join('\n'));
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    return res.status(500).send(['Error al corregir', ...informe].join('\n'));
   }
 }
