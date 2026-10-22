@@ -9,6 +9,9 @@ function claveOk(recibida) {
   return a.length === b.length && timingSafeEqual(a, b);
 }
 
+// Votos anulados por el comité: no aparecen en la lista (el archivo sigue en el Blob).
+const ANULADOS = new Set(['1207A']);
+
 const csv = v => '"' + String(v ?? '').replace(/"/g, '""') + '"';
 
 export default async function handler(req, res) {
@@ -38,6 +41,7 @@ export default async function handler(req, res) {
     // Un solo registro por depto: si hay dos, queda el más reciente.
     const porDepto = new Map();
     for (const f of filas) {
+      if (ANULADOS.has(f.depto)) continue;
       const previo = porDepto.get(f.depto);
       if (!previo || String(f.actualizado) > String(previo.actualizado)) porDepto.set(f.depto, f);
     }
