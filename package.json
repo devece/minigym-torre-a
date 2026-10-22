@@ -1,0 +1,8 @@
+{
+  "name": "minigym-torre-a",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@vercel/blob": "latest"
+  }
+}
