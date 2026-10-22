@@ -8,7 +8,7 @@ Idioma de la interfaz, los mensajes y los comentarios: español.
 
 - Cada vecino ingresa nombre, número de departamento y Sí/No. **Un registro por departamento**: si el mismo depto vuelve a responder, se reemplaza su respuesta anterior.
 - El avance público muestra solo totales (sí, no, sin responder). Los nombres solo los ve el comité mediante `/api/lista`.
-- El contador es una barra olímpica: 5 pares de discos, cada uno equivale a 22 departamentos (5 × 22 = 110). El disco en curso se llena de abajo hacia arriba.
+- El contador es una barra de avance de 5 tramos, cada uno equivale a 22 departamentos (5 × 22 = 110).
 
 ## Estructura
 
@@ -41,11 +41,11 @@ Vercel Blob privado, store `minigym-votos`, conectado al proyecto de Vercel. Cad
 
 ## Diseño
 
-- Tema de gimnasio: portada amarilla, bordes gruesos de 3 px con sombra dura, sin degradados.
-- Paleta: iron `#20262E`, yellow `#F2C230`, chalk `#E8EAEC`, paper `#F7F8F9`, red `#C62B22`, blue `#1F58C9`, green `#187A41`. Los colores de los discos siguen los de discos de gimnasio.
-- Tipografía: Big Shoulders Display (títulos y números) y Barlow (texto), desde Google Fonts, con fuentes de respaldo.
-- El avance se anima solo si el visitante no pidió movimiento reducido.
-- Constantes en el script de `index.html`: `META = 110`, `TOTAL = 164`, `PARES = 5`.
+- Estilo moderno y alegre: portada oscura con acento verde lima, tarjetas redondeadas y un dibujo de gimnasio (barra con discos, pesa rusa sonriente, mancuernas). Sin degradados.
+- Paleta: ink `#111418`, lime `#C6F135`, sun `#FFD23F`, sky `#5CC8FF`, orange `#FF8A3D`, pink `#FF5C8A`, fondo `#F3F4F1`.
+- Tipografía: Archivo (títulos y números) e Inter (texto), desde Google Fonts, con fuentes de respaldo.
+- El avance es una barra de 5 tramos de 22 departamentos (5 × 22 = 110); el tramo en curso se llena de izquierda a derecha. Se anima solo si el visitante no pidió movimiento reducido.
+- Constantes en el script de `index.html`: `META = 110`, `TOTAL = 164`, `PARES = 5` (tramos de la barra).
 
 ## Estado y pendientes
 
