@@ -1,4 +1,5 @@
 import { put, del } from '@vercel/blob';
+import { normalizarDepto } from './_depto.js';
 
 // Guarda (o actualiza) la respuesta de un departamento.
 // Un archivo por depto: votos/<DEPTO>--si.json o votos/<DEPTO>--no.json
@@ -11,10 +12,10 @@ export default async function handler(req, res) {
   b = b || {};
 
   const nombre = String(b.nombre || '').trim().replace(/\s+/g, ' ');
-  const depto = String(b.depto || '').trim().replace(/\s+/g, '').toUpperCase();
+  const depto = normalizarDepto(b.depto);
 
   if (nombre.length < 3 || nombre.length > 80) return res.status(400).json({ error: 'nombre invalido' });
-  if (!/^[A-Z0-9-]{1,10}$/.test(depto)) return res.status(400).json({ error: 'depto invalido' });
+  if (!depto) return res.status(400).json({ error: 'depto invalido' });
   if (typeof b.apoyo !== 'boolean') return res.status(400).json({ error: 'apoyo invalido' });
 
   const nuevo = b.apoyo ? 'si' : 'no';

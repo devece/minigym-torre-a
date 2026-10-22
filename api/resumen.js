@@ -4,16 +4,19 @@ import { list } from '@vercel/blob';
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
   try {
-    let si = 0, no = 0, cursor;
+    const si = new Set(), no = new Set();
+    let cursor;
     do {
       const page = await list({ prefix: 'votos/', limit: 1000, cursor });
       for (const b of page.blobs) {
-        if (b.pathname.endsWith('--si.json')) si++;
-        else if (b.pathname.endsWith('--no.json')) no++;
+        const m = b.pathname.match(/^votos\/(.+)--(si|no)\.json$/);
+        if (m) (m[2] === 'si' ? si : no).add(m[1]);
       }
       cursor = page.hasMore ? page.cursor : undefined;
     } while (cursor);
-    return res.status(200).json({ si, no });
+    // Un depto cuenta una sola vez: si quedaron ambos archivos (fallo o envío simultáneo), se cuenta como "no".
+    for (const d of no) si.delete(d);
+    return res.status(200).json({ si: si.size, no: no.size });
   } catch (e) {
     console.error('resumen', e);
     return res.status(500).json({ error: 'no disponible' });
